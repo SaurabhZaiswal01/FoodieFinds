@@ -14,7 +14,8 @@ let db;
 (async () => {
   try {
     db = await open({
-      filename: './BD4_Assignment1/database.sqlite',
+      // filename: './BD4_Assignment1/database.sqlite',
+      filename: path.join(__dirname, './BD4_Assignment1/database.sqlite'),
       driver: sqlite3.Database,
     });
 
@@ -246,4 +247,4 @@ app.get('/dishes/sort-by-price', async (req, res) => {
 });
 
 
-module.exports = app;
+// module.exports = app;
