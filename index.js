@@ -18,7 +18,6 @@ let db;
       driver: sqlite3.Database,
     });
 
-    // Start the server after the database connection is established
     app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
     });
