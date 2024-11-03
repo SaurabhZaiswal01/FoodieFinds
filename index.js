@@ -21,6 +21,7 @@ let db;
     app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
     });
+    console.log('Connected to the SQLite database.');
 
   } catch (error) {
     console.error('Error opening database:', error.message);
@@ -245,3 +246,4 @@ app.get('/dishes/sort-by-price', async (req, res) => {
 });
 
 
+module.exports = app;
