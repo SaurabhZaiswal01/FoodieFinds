@@ -14,11 +14,9 @@ let db;
 (async () => {
   try {
     db = await open({
-      // filename: './BD4_Assignment1/database.sqlite',
-      filename: path.join(__dirname, './BD4_Assignment1/database.sqlite'),
+      filename: './BD4_Assignment1/database.sqlite',
       driver: sqlite3.Database,
-    });
-
+    });    
     app.listen(port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
     });
