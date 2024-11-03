@@ -12,10 +12,20 @@ app.use(express.json());
 let db;
 
 (async () => {
-  db = await open({
-    filename: './BD4_Assignment1/database.sqlite',
-    driver: sqlite3.Database,
-  });
+  try {
+    db = await open({
+      filename: './BD4_Assignment1/database.sqlite',
+      driver: sqlite3.Database,
+    });
+
+    // Start the server after the database connection is established
+    app.listen(port, () => {
+      console.log(`Example app listening at http://localhost:${port}`);
+    });
+
+  } catch (error) {
+    console.error('Error opening database:', error.message);
+  }
 })();
 
 // Exercise 1: Get All Restaurants
@@ -235,6 +245,4 @@ app.get('/dishes/sort-by-price', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+
